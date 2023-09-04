@@ -1,0 +1,2 @@
+class CastItem < ApplicationRecord
+end
