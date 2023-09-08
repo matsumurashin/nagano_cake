@@ -1,45 +1,39 @@
 Rails.application.routes.draw do
   namespace :admin do
     get 'orders/show'
-  end
-  namespace :admin do
+
     get 'customers/index'
     get 'customers/show'
     get 'customers/edit'
-  end
-  namespace :admin do
+
     get 'items/index'
     get 'items/new'
     get 'items/show'
     get 'items/edit'
-  end
-  namespace :admin do
+
     get 'homes/top'
+
+    get 'admin/sign_in' => 'admin/sessions#new'
   end
+
   namespace :public do
     get 'orders/new'
     get 'orders/complete'
     get 'orders/idex'
     get 'orders/show'
-  end
-  namespace :public do
+
     get 'cart_items/index'
-  end
-  namespace :public do
+
     get 'cutomers/show'
     get 'cutomers/edit'
     get 'cutomers/check'
-  end
-  namespace :public do
+
     get 'items/index'
     get 'items/show'
-  end
-  namespace :public do
-    get 'homes/top'
-    get 'homes/about'
-  end
 
-  namespace :pubkic do
+    get 'homes/top'
+    get 'about' => 'public/hoems#about'
+
     get 'customers/sign_up' => 'registrations/new#sign_up'
   end
 
