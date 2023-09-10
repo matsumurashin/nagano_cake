@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
     get 'cart_items/index'
 
-    get 'cutomers/show'
+    get 'cutomers/show' => 'public/cutomers#show', as: 'customers/mypage'
     get 'cutomers/edit'
     get 'cutomers/check'
 
@@ -32,9 +32,10 @@ Rails.application.routes.draw do
     get 'items/show'
 
     get 'homes/top'
-    get 'about' => 'public/hoems#about'
+    get 'about' => 'public/public/homes#about', as:'about'
 
     get 'customers/sign_up' => 'registrations/new#sign_up'
+    get 'customers/sign_in' => 'new_customer_session'
   end
 
   devise_for :customers, skip: [:passwords], controllers: {
