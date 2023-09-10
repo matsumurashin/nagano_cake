@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
     get 'cart_items/index'
 
-    get 'cutomers/show' => 'public/cutomers#show', as: 'customers/mypage'
+    get 'cutomers/mypage' => 'cutomers#show', as: 'customers/mypage'
     get 'cutomers/edit'
     get 'cutomers/check'
 
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     get 'items/show'
 
     get 'homes/top'
-    get 'about' => 'public/public/homes#about', as:'about'
+    get 'public/about' => 'homes#about', as: 'about'
 
     get 'customers/sign_up' => 'registrations/new#sign_up'
     get 'customers/sign_in' => 'new_customer_session'
