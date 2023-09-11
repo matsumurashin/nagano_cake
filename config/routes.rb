@@ -3,42 +3,50 @@ Rails.application.routes.draw do
     get 'search' => 'search#search'
 
   namespace :admin do
-    get 'orders/show'
+    get 'orders/:id' => 'sessions#new'
 
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
+    get 'customers' => 'customers#index'
+    get 'customers/:id' => 'customers#show'
+    get 'customers/:id/edit' => 'customers#edit'
+    patch 'customers/:id' => 'customers#update'
 
-    get 'items/index'
-    get 'items/new'
-    get 'items/show'
-    get 'items/edit'
+    get 'items' => 'items#index'
+    get 'items/new' => 'items#new'
+    post 'items' => 'items#create'
+    get 'items/:id' => 'items#show'
+    get 'items/:id/edit' => 'items#edit'
+    patch 'items/:id' => 'items#update'
 
-    get 'homes/top'
+    get '/' => 'homes#top'
 
     get 'admin/sign_in' => 'admin/sessions#new'
   end
-get 'customers/out' => 'customers#out'
-  namespace :public do
-    get 'orders/new'
-    get 'orders/complete'
-    get 'orders/idex'
-    get 'orders/show'
 
-    get 'cart_items/index'
+  namespace :public do
+    get 'orders/new' => 'orders#new'
+    post 'orders/confirm' => 'orders#confirm'
+    get 'orders/complete' => 'orders#complete'
+    post 'orders' => 'orders#create'
+    get 'orders' => 'orders#index'
+    get 'orders/:id' => 'orders#show'
+
+    get 'cart_items' => 'cart_items#index'
+    patch 'cart_items/:id' => 'cart_items#update'
+    delete 'cart_items/:id' => 'cart_items#destroy'
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
+    post 'cart_items' => 'cart_items#create'
 
     get 'cutomers/mypage' => 'cutomers#show'
     get 'cutomers/Registration/edit' => 'customers#edit'
-    get 'cutomers/check'
+    patch 'customers/Registration' => 'customers#update'
+    get 'cutomers/check' => 'customers#check'
+    patch 'customers/withdraw' => 'customers#withdraw'
 
-    get 'items/index'
-    get 'items/show'
+    get 'items' => 'items#index'
+    get 'items/:id' => 'items#show'
 
-    get 'homes/top'
-    get 'public/about' => 'homes#about', as: 'about'
-
-    get 'customers/sign_up' => 'registrations/new#sign_up'
-    get 'customers/sign_in' => 'new_customer_session'
+    root to: 'homes#top'
+    get 'about' => 'homes#about'
   end
 
   devise_for :customers, skip: [:passwords], controllers: {
