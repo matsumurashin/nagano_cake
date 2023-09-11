@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+    get 'search' => 'search#search'
+
   namespace :admin do
     get 'orders/show'
 
@@ -15,7 +18,7 @@ Rails.application.routes.draw do
 
     get 'admin/sign_in' => 'admin/sessions#new'
   end
-
+get 'customers/out' => 'customers#out'
   namespace :public do
     get 'orders/new'
     get 'orders/complete'
@@ -24,8 +27,8 @@ Rails.application.routes.draw do
 
     get 'cart_items/index'
 
-    get 'cutomers/mypage' => 'cutomers#show', as: 'customers/mypage'
-    get 'cutomers/edit'
+    get 'cutomers/mypage' => 'cutomers#show'
+    get 'cutomers/Registration/edit' => 'customers#edit'
     get 'cutomers/check'
 
     get 'items/index'
@@ -46,10 +49,6 @@ Rails.application.routes.draw do
   devise_for :admins, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
-
-  # 会員側のルーティング設定
-
-  #管理者側のルーティング設定
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_search
-    @search = Product.ransack(params[:q])
+    @search = Item.ransack(params[:q])
     @search_products = @search.result
   end
 
@@ -21,10 +21,5 @@ class ApplicationController < ActionController::Base
   end
 
   before_action :set_search
-
-  def set_search
-    @search = Product.ransack(params[:q])
-    @search_products = @search.result
-  end
 
 end

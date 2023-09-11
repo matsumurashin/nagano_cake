@@ -39,6 +39,7 @@
     <%= f.text_field :telephone_number, autofocus: true %>
   </div>
 
+  <%= f.hidden_field :is_deleted, :value => false %>
   <div class="field">
     <%= f.label :"パスワード" %>
     <% if @minimum_password_length %>
