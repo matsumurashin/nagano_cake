@@ -3,7 +3,7 @@
 <div class="container">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-2">
       <div class="form-group">
           <div class="field">
             <%= f.label :"メールアドレス" %>
@@ -24,8 +24,10 @@
     </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "ログイン" %>
+  <div class="row">
+    <div class="actions">
+      <%= f.submit "ログイン", class: "bg-primary text-white rounded " %>
+    </div>
   </div>
 <% end %>
 </div>

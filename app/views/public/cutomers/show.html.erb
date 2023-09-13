@@ -1,13 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4">マイページ</div>
+    <div class="col-md-4">
+      <%= f.label "登録情報" %>
+    </div>
+    <div class="col-md-8">
+      <%= link_to "編集する",  public_cutomers_edit_path(current_customer.id) %>
+    </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-3">登録情報</div>
+<!--  <div class="row">-->
+<!--    <div class="col-md-3">登録情報</div>-->
 
-  </div>
-</div>
-<h5 class="col-md-4">マイページ</h5>
-<%= f.label 登録情報 %>
+<!--  </div>-->
+<!--</div>-->
+<!--<h5 class="col-md-4">マイページ</h5>-->
+<!--<%= f.label 登録情報 %>-->
 <%#= link_to "編集する",  public_cutomers_edit_path(current_customer.id) %>
