@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     get 'admin/sign_in' => 'admin/sessions#new'
   end
 
-  namespace :public do
+  scope module: :public do
     get 'orders/new' => 'orders#new'
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
@@ -36,10 +36,10 @@ Rails.application.routes.draw do
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
     post 'cart_items' => 'cart_items#create'
 
-    get 'cutomers/mypage' => 'cutomers#show'
-    get 'cutomers/Registration/edit' => 'customers#edit'
-    patch 'customers/Registration' => 'customers#update'
-    get 'cutomers/check' => 'customers#check'
+    get 'customers/mypage' => 'customers#show'
+    get 'customers/infomation/edit' => 'customers#edit'
+    patch 'customers/infomation' => 'customers#update'
+    get 'customers/check' => 'customers#check'
     patch 'customers/withdraw' => 'customers#withdraw'
 
     get 'items' => 'items#index'
