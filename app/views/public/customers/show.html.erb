@@ -11,47 +11,51 @@
       <%= link_to "編集する", customers_infomation_edit_path, class: " mr-auto btn btn-success" %>
     </div>
   </div>
-</div>
 
-<table class="mt-2 table table-bordered">
+
+<table class="table-bordered w-100">
+   <colgroup>
+    <col style="width: 33%;">
+    <col style="width: 67%;">
+  </colgroup>
   <tr>
-    <td class="bg-secondary"><p>氏名</p></td>
-    <td><%= @customer.first_name %> <%= @customer.last_name %></td>
+    <th class="bg-light p-1"><p>氏名</p></th>
+    <td class="p-2"><%= @customer.first_name %> <%= @customer.last_name %></td>
   </tr>
   <tr>
-    <td class="bg-secondary"><p>カナ</p></td>
-    <td><%= @customer.first_name_kana %> <%= @customer.last_name_kana %></td>
+    <th class="bg-light p-1"><p>カナ</p></th>
+    <td class="p-2"><%= @customer.first_name_kana %> <%= @customer.last_name_kana %></td>
   </tr>
   <tr>
-    <td class="bg-secondary"><p>郵便番号</p></td>
-    <td><%= @customer.postal_code %></td>
+    <th class="bg-light p-1"><p>郵便番号</p></th>
+    <td class="p-2"><%= @customer.postal_code %></td>
   </tr>
   <tr>
-    <td class="bg-secondary"><p>住所</p></td>
-    <td><%= @customer.address %></td>
+    <th class="bg-light p-1"><p>住所</p></th>
+    <td class="p-2"><%= @customer.address %></td>
   </tr>
   <tr>
-    <td class="bg-secondary"><p>電話番号</p></td>
-    <td><%= @customer.telephone_number %></td>
+    <th class="bg-light p-1"><p>電話番号</p></th>
+    <td class="p-2"><%= @customer.telephone_number %></td>
   </tr>
   <tr>
-    <td class="bg-secondary"><p>メールアドレス</p></td>
-    <td><%= @customer.email %></td>
+    <th class="bg-light p-1"><p>メールアドレス</p></th>
+    <td class="p-2"><%= @customer.email %></td>
   </tr>
 </table>
 
-<div class="container mx-2">
+
   <div class="row">
     <div class="col-4">
        <h4 class="font-weight-bold">配送先</h4>
     </div>
     <div class="col-4">
-      <%#= link_to "一覧を見る", _path, class: "btn btn-primary" %>
+      <%= link_to "一覧を見る", root_path, class: "btn btn-primary" %>
     </div>
   </div>
-</div>
 
-<div class="container mx-2">
+
+
   <div class="row">
     <div class="col-4">
        <h4 class="font-weight-bold">注文履歴</h4>
