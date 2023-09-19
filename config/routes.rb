@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     get 'customers/check' => 'customers#check'
     patch 'customers/withdraw' => 'customers#withdraw'
 
-    resources items, only: [:index, :show]
+    resources :items, only: [:index, :show]
 
     root to: 'homes#top'
 

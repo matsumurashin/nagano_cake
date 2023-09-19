@@ -2,12 +2,31 @@
   <span class="bg-secondary">商品登録</span>
 </h4>
 
+<%#= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
 <div class="container">
   <div class="row">
-    <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
-    <table>
-      
-    </table>
+    <div class="mx-auto col-11">
+
+        <table>
+          <tr>
+            <th>商品画像</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>商品名</th>
+            <td><%#= f.text_field :name %></td>
+          </tr>
+          <tr>
+            <th>商品説明</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>税抜価格</th>
+            <td></td>
+          </tr>
+        </table>
+
     </div>
   </div>
 </div>
