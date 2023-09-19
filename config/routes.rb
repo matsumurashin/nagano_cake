@@ -1,40 +1,21 @@
 Rails.application.routes.draw do
 
-    get 'search' => 'search#search'
-
   namespace :admin do
-    get 'orders/:id' => 'sessions#new'
-
-    get 'customers' => 'customers#index'
-    get 'customers/:id' => 'customers#show'
-    get 'customers/:id/edit' => 'customers#edit'
-    patch 'customers/:id' => 'customers#update'
-
-    get 'items' => 'items#index'
-    get 'items/new' => 'items#new'
-    post 'items' => 'items#create'
-    get 'items/:id' => 'items#show'
-    get 'items/:id/edit' => 'items#edit'
-    patch 'items/:id' => 'items#update'
-
-    get '/' => 'homes#top'
+    root to: 'homes#top'
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :items, except: [:destroy]
 
     get 'admin/sign_in' => 'admin/sessions#new'
   end
 
   scope module: :public do
-    get 'orders/new' => 'orders#new'
+    resources :orders, only: [:new, :create, :index, :show]
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
-    post 'orders' => 'orders#create'
-    get 'orders' => 'orders#index'
-    get 'orders/:id' => 'orders#show'
 
-    get 'cart_items' => 'cart_items#index'
-    patch 'cart_items/:id' => 'cart_items#update'
+    resources :cart_items, only: [:index, :update, :create]
     delete 'cart_items/:id' => 'cart_items#destroy'
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
-    post 'cart_items' => 'cart_items#create'
 
     get 'customers/mypage' => 'customers#show'
     get 'customers/infomation/edit' => 'customers#edit'
@@ -42,10 +23,10 @@ Rails.application.routes.draw do
     get 'customers/check' => 'customers#check'
     patch 'customers/withdraw' => 'customers#withdraw'
 
-    get 'items' => 'items#index'
-    get 'items/:id' => 'items#show'
+    resources items, only: [:index, :show]
 
     root to: 'homes#top'
+
     get 'about' => 'homes#about'
   end
 
