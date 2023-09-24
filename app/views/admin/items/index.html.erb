@@ -8,16 +8,14 @@
       <th class="header1">商品ID</th>
       <th class="header2">商品名</th>
       <th class="header3">税抜価格</th>
-      <th class="header4">ステータス</th>
     </tr>
   </thead>
   <tbody>
   <% @item.each do |item| %>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><%= item.id %></td>
+      <td><%= link_to item.name, admin_item_path(item.id) %></td>
+      <td><%= item.price %></td>
     </tr>
   <% end %>
   </tbody>
