@@ -2,21 +2,28 @@
   <span class="bg-secondary">商品一覧</span>
 </h4>
 
-<table>
-  <thead>
-    <tr>
-      <th class="header1">商品ID</th>
-      <th class="header2">商品名</th>
-      <th class="header3">税抜価格</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @item.each do |item| %>
-    <tr>
-      <td><%= item.id %></td>
-      <td><%= link_to item.name, admin_item_path(item.id) %></td>
-      <td><%= item.price %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      <table cellpadding="15">
+        <thead>
+          <tr class="bg-secondary">
+            <th class="header1">商品ID</th>
+            <th class="header2">商品名</th>
+            <th class="header3">税抜価格</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @item.each do |item| %>
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= link_to item.name, admin_item_path(item.id) %></td>
+            <td><%= item.price %></td>
+          </tr>
+        <% end %>
+<%= paginate post_images %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
