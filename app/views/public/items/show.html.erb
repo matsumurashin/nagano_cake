@@ -1,3 +1,26 @@
+  <div class="container mx-auto">
+    <div class="row">
+      <div class="col-6 mx-auto">
+        <%= image_tag @item.get_image(300,300) %>
+      </div>
 
+      <div class="col-4">
+        <div class="local mt-3">
+          <b><%= @item.name %></b><br>
+        </div>
+        <div class="local mt-3">
+          <%= @item.introduction %><br>
+        </div>
+        <div class="local mt-3">
+          <b>¥<%= @item.with_tax_price %></b>
+          <small>(税込)</small>
 
-<h5>顧客詳細</h5>
+          <%#= form_with model: @item do |f| %>
+            <%#= f.select :
+          <% end %>
+
+         <%= link_to "カートに入れる", cart_items_path %>
+        </div>
+      </div>
+    </div>
+  </div>
