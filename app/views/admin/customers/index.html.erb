@@ -20,11 +20,12 @@
             <td><%= customer.id %></td>
             <td><%=link_to customer.full_name, admin_customer_path(customer.id) %></td>
             <td><%= customer.email %></td>
-            <td class="text-success"><% if customer.is_deleted %>
-                  <b>無効</b>
-                <% else %>
-                  <b>有効</b>
-                <% end %>
+            <td class="text-success">
+              <% if customer.is_deleted %>
+                <b>無効</b>
+              <% else %>
+                <b>有効</b>
+              <% end %>
             </td>
           </tr>
           <% end %>
