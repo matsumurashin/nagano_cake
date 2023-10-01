@@ -1,4 +1,3 @@
 class CastItem < ApplicationRecord
-  def index
-  end
+  belongs_to :customer
 end
