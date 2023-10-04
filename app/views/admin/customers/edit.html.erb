@@ -7,7 +7,7 @@
     <div class="col-10 mx-auto">
 <table>
   <tr>
-    <th>会員ID</th>
+    <th class="border">会員ID</th>
     <td><%= @customer.id %></td>
   </tr>
   <%= form_with model: @customer, url: admin_customer_path(@customer.id) do |f| %>
