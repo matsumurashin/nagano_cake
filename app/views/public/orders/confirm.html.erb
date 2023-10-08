@@ -1,0 +1,29 @@
+<h4>
+  <span class="bg-secondary">注文情報確認</span>
+</h4>
+
+<div class="container">
+  <div class="row">
+    <div class="col-7">
+      <table>
+        <thead>
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+        </thead>
+        <tbody>
+          <% @order. each do |order| %>
+          <td>
+            <%= order.image_tag item.get_image(200,200) %>
+            <%= order.item.name %>
+          </td>
+          <td><%= order.item.with_tax_price %></td>
+          <td><%= order.amount %></td>
+          <td><%= order.subtotal %></td>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

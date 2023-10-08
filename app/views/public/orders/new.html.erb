@@ -2,7 +2,7 @@
   <span class="bg-secondary">注文情報入力</span>
 </h4>
 
-<%= form_with model: @order do |f| %>
+<%= form_with model: @order, url: orders_confirm_path do |f| %>
 
 <div class="container">
   <div class="row">
@@ -12,7 +12,7 @@
       </h5>
 
       <div class="ml-3">
-        <%= f.radio_button :payment_method, "credit_card" %>
+        <%= f.radio_button :payment_method, "credit_card", checked: "checked" %>
         <%= f.label :payment_method_credit_card, "クレジットカード" %><br>
         <%= f.radio_button :payment_method, "transfar" %>
         <%= f.label :payment_method_transfer, "銀行振込" %>
@@ -27,8 +27,8 @@
       </h5>
 
       <div class="ml-3">
-        <%= f.radio_button :adress, checked: "checked" %>
-          <%= f.label :adress, "ご自身の住所" %><br>
+        <%= f.radio_button :address, checked: "checked" %>
+          <%= f.label :address, "ご自身の住所" %><br>
 
         〒<%= current_customer.postal_code %>
         <%= current_customer.address %><br>
@@ -37,11 +37,10 @@
     </div>
   </div>
 
-<% end %>
-
   <div class="row">
     <div class="col-4 mx-auto">
-      <%= link_to "確認画面へ進む",  orders_confirm_path, class: "btn btn-primary" %>
+      <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
     </div>
+<% end %>
   </div>
 </div>
