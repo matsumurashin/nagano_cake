@@ -12,7 +12,6 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items
     @order.shipping_fee = 800
     @total = 0
-
   end
 
   def create

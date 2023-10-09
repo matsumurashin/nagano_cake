@@ -12,10 +12,10 @@
       </h5>
 
       <div class="ml-3">
-        <%= f.radio_button :payment_method, "credit_card", checked: "checked" %>
-        <%= f.label :payment_method_credit_card, "クレジットカード" %><br>
-        <%= f.radio_button :payment_method, "transfar" %>
-        <%= f.label :payment_method_transfer, "銀行振込" %>
+        <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+        <%= f.label :payment_method_credit_card, Order.payment_methods_i18n[:credit_card] %><br>
+        <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
+        <%= f.label :payment_method_transfer, Order.payment_methods_i18n[:transfer]%>
       </div>
     </div>
   </div>
@@ -27,7 +27,7 @@
       </h5>
 
       <div class="ml-3">
-        <%= f.radio_button :address, checked: "checked" %>
+        <%= f.radio_button :address, "0" %>
           <%= f.label :address, "ご自身の住所" %><br>
 
         〒<%= current_customer.postal_code %>
