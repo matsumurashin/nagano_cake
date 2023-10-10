@@ -8,12 +8,14 @@ Rails.application.routes.draw do
     get 'admin/sign_in' => 'admin/sessions#new'
   end
 
+
   scope module: :public do
     get 'orders/confirm' => 'orders#confirm'
     post 'orders/confirm' => 'orders#confirm'
+    get 'orders/complete' => 'orders#complete'
     resources :orders, only: [:new, :create, :index, :show]
 
-    get 'orders/complete' => 'orders#complete'
+
 
     resources :cart_items, only: [:index, :update, :create]
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
