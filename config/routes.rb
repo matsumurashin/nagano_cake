@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
   namespace :admin do
-    root to: 'homes#top'
+    get '' => 'homes#top'
     resources :customers, only: [:index, :show, :edit, :update]
     resources :items, except: [:destroy]
+    resources :orders, only: [:show]
 
     get 'admin/sign_in' => 'admin/sessions#new'
   end

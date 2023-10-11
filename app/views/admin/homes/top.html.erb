@@ -14,15 +14,22 @@
           </tr>
         </thead>
         <tbody>
-        <%# @item.each do |item| %>
+        <% @order.each do |order| %>
           <tr>
-            <td><%#= item.id %></td>
-            <td><%#= link_to item.name, admin_item_path(item.id) %></td>
-            <td><%#= item.price %></td>
+            <td><%= link_to order.created_at, admin_order_path(order.id) %></td>
+            <td><%= order.name %></td>
+            <td>
+              <% order.order_details.each do |order_detail| %>
+                <% @amount = order_detail.amount + @amount %>
+              <% end %>
+              <%= @amount %>
+              <% @amount = 0 %>
+              </td>
           </tr>
-        <%# end %>
+        <% end %>
         </tbody>
       </table>
+      <%= paginate @order %>
     </div>
   </div>
 </div>

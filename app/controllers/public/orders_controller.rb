@@ -18,7 +18,6 @@ class Public::OrdersController < ApplicationController
     @order = current_customer.orders.new(order_params)
     @cart_items = current_customer.cart_items
     @order.shipping_fee = 800
-    @order.amount_billed =
     if @order.save
       @cart_items.each do |cart_item|
         @order_detail = OrderDetail.new
@@ -26,6 +25,7 @@ class Public::OrdersController < ApplicationController
         @order_detail.item_id = cart_item.item_id
         @order_detail.price = (cart_item.item.price * 1.1 * cart_item.amount).to_i
         @order_detail.amount = cart_item.amount
+        @order_detail.save
       end
       @cart_items.destroy_all
     end
