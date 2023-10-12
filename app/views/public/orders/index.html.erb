@@ -1,2 +1,32 @@
-<h1>Public::Orders#idex</h1>
-<p>Find me in app/views/public/orders/idex.html.erb</p>
+<h4>
+  <span class="bg-secondary">注文履歴一覧</span>
+</h4>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <thead>
+          <th>注文日</th>
+          <th>配送先</th>
+          <th>注文商品</th>
+          <th>支払い金額</th>
+          <th>注文詳細</th>
+        </thead>
+        <% @order.each do |order| %>
+        <tbody>
+          <td><%= order.created_at.strftime("%Y/%m/%d") %></td>
+          <td><%= order.address %></td>
+          <td>
+            <% order.order_details.each do |order_detail| %>
+              <%= order_detail.item.name %><br>
+            <% end %>
+          </td>
+          <td></td>
+          <td></td>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
