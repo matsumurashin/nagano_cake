@@ -1,4 +1,7 @@
 class Public::OrdersController < ApplicationController
+
+  before_action :cart_items_nil, only: [:new, :create]
+
   def new
     @order = Order.new
     @customer = current_customer
@@ -50,5 +53,12 @@ class Public::OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:payment_method, :name, :postal_code, :address, :shipping_fee, :amount_billed)
+  end
+
+  def cart_items_nil
+    cart_items = current_customer.cart_items
+    if cart_items.blank?
+      redirect_to items_path
+    end
   end
 end
