@@ -4,7 +4,7 @@
   <div class="row">
     <% @item.each do |item| %>
     <div class="col-3">
-      <%= image_tag item.get_image(200,200) %><br>
+      <%= link_to image_tag(item.get_image(200,200)), item_path(item.id) %><br>
       <%= link_to item.name,item_path(item.id) %><br>
       ¥<%= item.price %>
     </div>
