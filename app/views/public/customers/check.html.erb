@@ -21,7 +21,7 @@
     </div>
 
     <div class="col-4 mx-auto">
-      <%= link_to "退会する",  customers_withdraw_path, method: :patch, class: "btn bg-danger" %>
+      <%= link_to "退会する",  customers_withdraw_path, method: :patch, data: { confirm: '本当に退会しますか？' }, class: "btn bg-danger" %>
     </div>
   </div>
 </div>
